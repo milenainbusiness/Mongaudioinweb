@@ -6,36 +6,54 @@
     <title>Mongaudio Farm</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
         }
         header {
             background-color: #4CAF50;
             color: white;
             padding: 15px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        header img {
+            width: 50px;
+            height: auto;
+        }
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        h2 {
+            font-family: 'Verdana', sans-serif;
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
         }
         section {
             padding: 20px;
             margin: 20px;
             border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .history {
             background-color: #e6ffe6;
-            color: #333;
         }
         .products {
             background-color: #ffebcc;
-            color: #333;
         }
         .location {
             background-color: #e6f7ff;
-            color: #333;
         }
         .contact {
             background-color: #fff5e6;
-            color: #333;
         }
         .history img,
         .products img,
@@ -111,30 +129,31 @@
 
     <!-- Header -->
     <header>
-        <h1>Benvenuti alla fattoria Mongaudio. </h1>
+        <img src="path_to_logo.png" alt="Farm Logo">
+        <h1>Benvenuti alla fattoria Mongaudio</h1>
+        <img src="path_to_logo.png" alt="Farm Logo">
     </header>
-    <h2>Qui potete trovare piú informazioni sulla nostra attività, i nostri prodotti e dove potete trovarci!</h2>
+    <h2>Qui potete trovare più informazioni sulla nostra attività, i nostri prodotti e dove potete trovarci!</h2>
 
     <!-- La nostra storia -->
     <section class="history">
         <h2>La nostra storia</h2>
         <div class="slider">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
         </div>
         <button id="prev">Previous</button>
         <button id="next">Next</button>
         
-        <p>La cascina Mongaudio immersa tra le fertili colline del Monferrato nasce più di due secoli fà. Ad oggi continuiamo l'attività artigianale che contraddistingueva i nostri precessori coltivando alcuni dei terreni nella nostra vallata, allevando suini di qualità e producendo prodotti di norcineria di prima classe. Nel rispetto dell'ambiente tutta l'energia utilizzata all'interno della nostra azienda viene prodotta tramite i nostri panelli solari e per via della fermentazione di prodotti di scambio all'interno del nostro Biogas mentre, le nostre api si adoperano per tutelare la flora locale e proteggere la biodiversità della ecologia locale.</p>
-        
-        <p> Il nostro spaccio lo trovi aperto dal venerdì al sabato dalle 8.30 alle 19.30 e la domenica dalle 8.30 alle 13.00. Per piu informazioni su i nostri prodotti e orari dai un occhio alla sezione qui di seguito. </p>
-        <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/spaccio.jpeg" alt="Entrata alla farm">
+        <p>La cascina Mongaudio, immersa tra le fertili colline del Monferrato, nasce più di due secoli fa. Oggi continuiamo l'attività artigianale che contraddistingueva i nostri predecessori, coltivando alcuni dei terreni nella nostra vallata, allevando suini di qualità e producendo prodotti di norcineria di prima classe. Nel rispetto dell'ambiente, tutta l'energia utilizzata all'interno della nostra azienda viene prodotta tramite i nostri pannelli solari e per via della fermentazione di prodotti di scambio all'interno del nostro Biogas, mentre le nostre api si adoperano per tutelare la flora locale e proteggere la biodiversità dell'ecologia locale.</p>
     </section>
 
     <!-- I nostri prodotti -->
     <section class="products">
         <h2>I nostri prodotti</h2>
+        <p>Il nostro spaccio lo trovi aperto dal venerdì al sabato dalle 8.30 alle 19.30 e la domenica dalle 8.30 alle 13.00. Per più informazioni sui nostri prodotti e orari dai un occhio alla sezione qui di seguito.</p>
         <ul>
             <li>
                 <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/salumi" alt="Salame">
@@ -171,7 +190,7 @@
     <section class="location">
         <h2>Dove trovarci</h2>
         <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/gate.jpeg" alt="Entrata alla farm">
-        <p>Ci puoi trovare nella valle a metá tra i Paesi di Camagna e Conzano Monferrato seguendo xxxxxx (inserire maggiori informazioni). O puoi trovarci su Google maps digitando "Cascina Mongaudio" o, piú semplicemente toccando sul link qua sotto: </p>
+        <p>Ci puoi trovare nella valle a metà tra i Paesi di Camagna e Conzano Monferrato seguendo xxxxxx (inserire maggiori informazioni). O puoi trovarci su Google Maps digitando "Cascina Mongaudio" o, più semplicemente, toccando sul link qua sotto:</p>
         <a href="https://www.google.com/maps/place/Cascina+Mongaudio/@45.0159555,8.4484018,17z/data=!3m1!4b1!4m6!3m5!1s0x4787a257e8ebaed1:0x303b2f731b2e62cc!8m2!3d45.0159555!4d8.4484018!16s%2Fg%2F1ptvt8847?entry=ttu">View on Google Maps</a>
     </section>
 
@@ -179,17 +198,8 @@
     <section class="contact">
         <h2>Per contattarci</h2>
         <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/contact.jpeg" alt="Contact Us">
-        <p>Per qualsiasi domanda e ordinazioni non esistate a contattarci ai seguenti numeri:</p>
+        <p>Per qualsiasi domanda e ordinazioni non esitate a contattarci ai seguenti numeri:</p>
         <p>Mobile: +39 3534539436</p>
         <p>Mobile: +39 3398884744</p>
-        <p>Instagram: salumi_mongaudio </p>
-        <a href="https://www.instagram.com/salumi_mongaudio?igsh=MWwwem54OWdhM2hwdg==">View on Instagram</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Our Farm. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+        <p>Instagram: salumi_mongaudio</p>
+        <a href="https://
