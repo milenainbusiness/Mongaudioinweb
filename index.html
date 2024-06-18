@@ -18,10 +18,62 @@
         }
         section {
             padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
         }
-        .history img {
-            width: 100%;
+        .history {
+            background-color: #e6ffe6;
+            color: #333;
+        }
+        .products {
+            background-color: #ffebcc;
+            color: #333;
+        }
+        .location {
+            background-color: #e6f7ff;
+            color: #333;
+        }
+        .contact {
+            background-color: #fff5e6;
+            color: #333;
+        }
+        .history img,
+        .products img,
+        .location img,
+        .contact img {
+            width: 150px;
             height: auto;
+            margin-right: 20px;
+            float: left;
+        }
+        .details, .dettagli {
+            display: flex;
+            flex-direction: column;
+        }
+        .products ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .products li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .price, .prezzo {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+        }
+        .active-slide {
+            display: block;
         }
         footer {
             background-color: #f1f1f1;
@@ -29,6 +81,31 @@
             text-align: center;
         }
     </style>
+    <script>
+        let currentSlide = 0;
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slides');
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active-slide');
+                if (i === index) slide.classList.add('active-slide');
+            });
+        }
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slides');
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slides');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+            document.querySelector('#next').addEventListener('click', nextSlide);
+            document.querySelector('#prev').addEventListener('click', prevSlide);
+        });
+    </script>
 </head>
 <body>
 
@@ -40,19 +117,25 @@
     <!-- La nostra storia -->
     <section class="history">
         <h2>La nostra storia</h2>
+        <div class="slider">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Old Farm Photo 1">
+            <img class="slides" src="https://github.com/milenainbusiness/Mongaudioinweb/tree/main/Fiorialberi.jpeg" alt="Old Farm Photo 2">
+        </div>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
         <p>Our farm has a rich history dating back over a century. Ad oggi ci puoi trovare immersi nella natura:</p>
-        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Old Farm Photo 2">
-        <img src="https://github.com/milenainbusiness/Mongaudioinweb/tree/main/Fiorialberi.jpeg" alt="Old Farm Photo 2">
         <p>Il nostro punto vendita lo trovi aperto nei seguenti giorni e orari:</p>
         <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/spaccio.jpeg" alt="Entrata alla farm">
     </section>
 
     <!-- I nostri prodotti -->
-     <ul>
+    <section class="products">
+        <h2>I nostri prodotti</h2>
+        <ul>
             <li>
                 <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/salumi" alt="Salame">
                 <div class="dettagli prodotto">
-                    <span>Mi</span>
+                    <span>Salame</span>
                     <span class="prezzo">$XX per kg</span>
                 </div>
             </li>
@@ -80,7 +163,7 @@
         </ul>
     </section>
 
-    <!-- Where to Find Us -->
+    <!-- Dove trovarci -->
     <section class="location">
         <h2>Dove trovarci</h2>
         <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/gate.jpeg" alt="Entrata alla farm">
@@ -88,9 +171,10 @@
         <a href="https://www.google.com/maps/place/Cascina+Mongaudio/@45.0159555,8.4484018,17z/data=!3m1!4b1!4m6!3m5!1s0x4787a257e8ebaed1:0x303b2f731b2e62cc!8m2!3d45.0159555!4d8.4484018!16s%2Fg%2F1ptvt8847?entry=ttu">View on Google Maps</a>
     </section>
 
-    <!-- Contact Details -->
+    <!-- Per contattarci -->
     <section class="contact">
         <h2>Per contattarci</h2>
+        <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/contact.jpeg" alt="Contact Us">
         <p>Per qualsiasi domanda e ordinazioni non esistate a contattarci ai seguenti numeri:</p>
         <p>Mobile: +39 3534539436</p>
         <p>Mobile: +39 3398884744</p>
