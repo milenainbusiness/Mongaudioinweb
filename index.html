@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mongaudio Farm</title>
+    <title>Interactive Page with Animations</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -21,9 +21,10 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
+            animation: fadeIn 2s ease-in-out;
         }
         header img {
-            width: 50px;
+            width: 100px; /* Increased size */
             height: auto;
         }
         h1 {
@@ -48,6 +49,9 @@
         }
         .products {
             background-color: #ffebcc;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         .location {
             background-color: #e6f7ff;
@@ -59,49 +63,84 @@
         .products img,
         .location img,
         .contact img {
-            width: 150px;
+            width: 100%;
             height: auto;
-            margin-right: 20px;
-            float: left;
         }
         .details, .dettagli {
             display: flex;
             flex-direction: column;
         }
-        .products ul {
-            list-style-type: none;
-            padding: 0;
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
         }
-        .products li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info span {
+            display: block;
         }
         .price, .prezzo {
             font-weight: bold;
             color: #4CAF50;
+            margin-top: 10px;
         }
-        .slider {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-            overflow: hidden;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        .slides {
-            display: none;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
         }
-        .active-slide {
-            display: block;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
         }
-        footer {
-            background-color: #f1f1f1;
-            padding: 10px;
-            text-align: center;
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        .rotate {
+            animation: rotate 3s linear infinite;
         }
     </style>
 </head>
@@ -109,26 +148,26 @@
 
     <!-- Header -->
     <header>
-        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Farm Logo">
-        <h1>Benvenuti alla fattoria Mongaudio</h1>
-        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Farm Logo">
+        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Farm Logo">
+        <h1 class="bounce">Benvenuti alla fattoria Mongaudio</h1>
+        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Farm Logo">
     </header>
     <h2>Qui potete trovare più informazioni sulla nostra attività, i nostri prodotti e dove potete trovarci!</h2>
 
-    <!-- La nostra storia -->
-    <section class="history slide-in">
-        <h2>La nostra storia</h2>
-        <div class="slider">
-            <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Logo">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <button id="prev">Previous</button>
-            <button id="next">Next</button>
-        </div>
+   <!-- La nostra storia -->
+<section class="history slide-in">
+    <h2>La nostra storia</h2>
+    <div class="slider">
+        <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Logo">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+    </div>
     <p>
         La cascina Mongaudio, immersa tra le fertili colline del Monferrato, nasce più di due secoli fa. Oggi continuiamo l'attività artigianale che contraddistingueva i nostri predecessori, coltivando alcuni dei terreni nella nostra vallata, allevando suini di qualità e producendo prodotti di norcineria di prima classe. Nel rispetto dell'ambiente, tutta l'energia utilizzata all'interno della nostra azienda viene prodotta tramite i nostri pannelli solari e per via della fermentazione di prodotti di scambio all'interno del nostro Biogas, mentre le nostre api si adoperano per tutelare la flora locale e proteggere la biodiversità dell'ecologia locale.
     </p>
@@ -153,29 +192,29 @@
                 <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti, salnitro</span>
             </div>
         </li>
-        <li class="product-card">
-            <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/ETICHETTA%20PASTA%20DI%20SALAME%20-.jpg" alt="Salame">
-            <div class="product-info">
-                <span>Pasta di Salame</span>
-                <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti, salnitro</span>
-            </div>
-        </li>
     </ul>
 </section>
 
-<!-- Dove trovarci -->
-<section class="location">
-    <h2>Dove trovarci</h2>
-    <p>Ci puoi trovare nella valle a metà tra i Paesi di Camagna e Conzano Monferrato seguendo xxxxxx (inserire maggiori informazioni). O puoi trovarci su Google Maps digitando "Cascina Mongaudio" o, più semplicemente, toccando sul link qua sotto:</p>
-    <a href="https://www.google.com/maps/place/Cascina+Mongaudio/@45.0159555,8.4484018,17z/data=!3m1!4b1!4m6!3m5!1s0x4787a257e8ebaed1:0x303b2f731b2e62cc!8m2!3d45.0159555!4d8.4484018!16s%2Fg%2F1ptvt8847?entry=ttu">View on Google Maps</a>
-</section>
+<footer>
+    <p>© 2024 Mongaudio Farm. All rights reserved.</p>
+</footer>
 
-<!-- Per contattarci -->
-<section class="contact">
-    <h2>Per contattarci</h2>
-    <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/contact.jpeg" alt="Contact Us">
-    <p>Per qualsiasi domanda e ordinazioni non esitate a contattarci ai seguenti numeri:</p>
-    <p>Mobile: +39 3534539436</p>
-    <p>Mobile: +39 3398884744</p>
-    <p>Instagram: salumi_mongaudio</p>
+</body>
+</html>
+
+    <!-- Dove trovarci -->
+    <section class="location">
+        <h2>Dove trovarci</h2>
+        <p>Ci puoi trovare nella valle a metà tra i Paesi di Camagna e Conzano Monferrato seguendo xxxxxx (inserire maggiori informazioni). O puoi trovarci su Google Maps digitando "Cascina Mongaudio" o, più semplicemente, toccando sul link qua sotto:</p>
+        <a href="https://www.google.com/maps/place/Cascina+Mongaudio/@45.0159555,8.4484018,17z/data=!3m1!4b1!4m6!3m5!1s0x4787a257e8ebaed1:0x303b2f731b2e62cc!8m2!3d45.0159555!4d8.4484018!16s%2Fg%2F1ptvt8847?entry=ttu">View on Google Maps</a>
+    </section>
+
+    <!-- Per contattarci -->
+    <section class="contact">
+        <h2>Per contattarci</h2>
+        <img src="/Users/u5501896/Desktop/Mongaudioinweb - webpage/images/contact.jpeg" alt="Contact Us">
+        <p>Per qualsiasi domanda e ordinazioni non esitate a contattarci ai seguenti numeri:</p>
+        <p>Mobile: +39 3534539436</p>
+        <p>Mobile: +39 3398884744</p>
+        <p>Instagram: salumi_mongaudio</p>
         <a href="https://www.instagram.com/salumi_mongaudio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="></a>
