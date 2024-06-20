@@ -47,6 +47,28 @@
         .history {
             background-color: #e6ffe6;
         }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .active-slide {
+            display: block;
+        }
+        footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
         .products {
             background-color: #ffebcc;
             display: grid;
@@ -157,17 +179,17 @@
    <!-- La nostra storia -->
 <section class="history slide-in">
     <h2>La nostra storia</h2>
-    <div class="slider">
-        <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Logo">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
-        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
-    </div>
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <button id="prev">Previous</button>
-        <button id="next">Next</button>
-    </div>
+        <div class="slider">
+            <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Logo">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
+            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+        </div>
     <p>
         La cascina Mongaudio, immersa tra le fertili colline del Monferrato, nasce più di due secoli fa. Oggi continuiamo l'attività artigianale che contraddistingueva i nostri predecessori, coltivando alcuni dei terreni nella nostra vallata, allevando suini di qualità e producendo prodotti di norcineria di prima classe. Nel rispetto dell'ambiente, tutta l'energia utilizzata all'interno della nostra azienda viene prodotta tramite i nostri pannelli solari e per via della fermentazione di prodotti di scambio all'interno del nostro Biogas, mentre le nostre api si adoperano per tutelare la flora locale e proteggere la biodiversità dell'ecologia locale.
     </p>
@@ -195,10 +217,6 @@
     </ul>
 </section>
 
-<footer>
-    <p>© 2024 Mongaudio Farm. All rights reserved.</p>
-</footer>
-
 </body>
 </html>
 
@@ -218,3 +236,6 @@
         <p>Mobile: +39 3398884744</p>
         <p>Instagram: salumi_mongaudio</p>
         <a href="https://www.instagram.com/salumi_mongaudio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="></a>
+        <footer>
+    <p>© 2024 Mongaudio Farm. All rights reserved.</p>
+</footer>
