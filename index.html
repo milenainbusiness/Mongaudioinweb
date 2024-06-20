@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mongaudio Farm</title>
+    <title>Interactive Page with Animations</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -21,9 +21,10 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
+            animation: fadeIn 2s ease-in-out;
         }
         header img {
-            width: 400px; /* Increased size */
+            width: 100px; /* Increased size */
             height: auto;
         }
         h1 {
@@ -94,63 +95,80 @@
             color: #4CAF50;
             margin-top: 10px;
         }
-        footer {
-            background-color: #f1f1f1;
-            padding: 10px;
-            text-align: center;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        .rotate {
+            animation: rotate 3s linear infinite;
         }
     </style>
-    <script>
-        let currentSlide = 0;
-        function showSlide(index) {
-            const slides = document.querySelectorAll('.slides');
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active-slide');
-                if (i === index) slide.classList.add('active-slide');
-            });
-        }
-        function nextSlide() {
-            const slides = document.querySelectorAll('.slides');
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        function prevSlide() {
-            const slides = document.querySelectorAll('.slides');
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            showSlide(currentSlide);
-            document.querySelector('#next').addEventListener('click', nextSlide);
-            document.querySelector('#prev').addEventListener('click', prevSlide);
-        });
-    </script>
 </head>
 <body>
 
     <!-- Header -->
     <header>
         <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Farm Logo">
-        <h1>Benvenuti alla fattoria Mongaudio</h1>
+        <h1 class="bounce">Benvenuti alla fattoria Mongaudio</h1>
         <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Farm Logo">
     </header>
     <h2>Qui potete trovare più informazioni sulla nostra attività, i nostri prodotti e dove potete trovarci!</h2>
 
    <!-- La nostra storia -->
-<section class="history" style="display: flex; flex-direction: column; align-items: flex-start;">
-    <h2 style="align-self: center;">La nostra storia</h2>
-    <div class="slider" style="align-self: center;">
+<section class="history slide-in">
+    <h2>La nostra storia</h2>
+    <div class="slider">
         <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Logo">
         <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
         <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
         <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
         <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
     </div>
-    <div style="display: flex; align-items: center; gap: 10px; align-self: center;">
+    <div style="display: flex; align-items: center; gap: 10px;">
         <button id="prev">Previous</button>
         <button id="next">Next</button>
     </div>
-    <p style="max-width: 5000px; text-align: justify;">
+    <p>
         La cascina Mongaudio, immersa tra le fertili colline del Monferrato, nasce più di due secoli fa. Oggi continuiamo l'attività artigianale che contraddistingueva i nostri predecessori, coltivando alcuni dei terreni nella nostra vallata, allevando suini di qualità e producendo prodotti di norcineria di prima classe. Nel rispetto dell'ambiente, tutta l'energia utilizzata all'interno della nostra azienda viene prodotta tramite i nostri pannelli solari e per via della fermentazione di prodotti di scambio all'interno del nostro Biogas, mentre le nostre api si adoperano per tutelare la flora locale e proteggere la biodiversità dell'ecologia locale.
     </p>
 </section>
@@ -174,8 +192,15 @@
                 <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti, salnitro</span>
             </div>
         </li>
-        </ul>
-    </section>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2024 Mongaudio Farm. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
 
     <!-- Dove trovarci -->
     <section class="location">
