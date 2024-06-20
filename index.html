@@ -47,6 +47,25 @@
         .history {
             background-color: #e6ffe6;
         }
+        .slider {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        overflow: hidden; /* Added to hide the non-active slides */
+        }
+
+        .slides {
+        display: none;
+        width: 100%;
+        position: absolute; /* Added to stack images on top of each other */
+        top: 0;
+        left: 0;
+        }
+
+        .active-slide {
+        display: block;
+        }
         .products {
             background-color: #ffebcc;
             display: grid;
@@ -143,6 +162,31 @@
             animation: rotate 3s linear infinite;
         }
     </style>
+    <script>
+        let currentSlide = 0;
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slides');
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active-slide');
+                if (i === index) slide.classList.add('active-slide');
+            });
+        }
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slides');
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slides');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+            document.querySelector('#next').addEventListener('click', nextSlide);
+            document.querySelector('#prev').addEventListener('click', prevSlide);
+        });
+    </script>
 </head>
 <body>
 
