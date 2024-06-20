@@ -23,7 +23,7 @@
             gap: 20px;
         }
         header img {
-            width: 50px;
+            width: 300px;
             height: auto;
         }
         h1 {
@@ -86,14 +86,9 @@
             width: 100%;
             max-width: 600px;
             margin: auto;
-            overflow: hidden;
         }
         .slides {
             display: none;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
         .active-slide {
             display: block;
@@ -104,64 +99,105 @@
             text-align: center;
         }
     </style>
+    <script>
+        let currentSlide = 0;
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slides');
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active-slide');
+                if (i === index) slide.classList.add('active-slide');
+            });
+        }
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slides');
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slides');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+            document.querySelector('#next').addEventListener('click', nextSlide);
+            document.querySelector('#prev').addEventListener('click', prevSlide);
+        });
+    </script>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Farm Logo">
+        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Farm Logo">
         <h1>Benvenuti alla fattoria Mongaudio</h1>
-        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Farm Logo">
+        <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Farm Logo">
     </header>
     <h2>Qui potete trovare più informazioni sulla nostra attività, i nostri prodotti e dove potete trovarci!</h2>
 
-    <!-- La nostra storia -->
-    <section class="history slide-in">
-        <h2>La nostra storia</h2>
-        <div class="slider">
-            <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO%20MONGAUDIO.jpg" alt="Logo">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
-            <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <button id="prev">Previous</button>
-            <button id="next">Next</button>
-        </div>
-    <p>
+   <!-- La nostra storia -->
+<section class="history" style="display: flex; flex-direction: column; align-items: flex-start;">
+    <h2 style="align-self: center;">La nostra storia</h2>
+    <div class="slider" style="align-self: center;">
+        <img class="slides active-slide" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/MAIALINO MONGAUDIO.jpg" alt="Logo">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiori.jpeg" alt="Fiori e api">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/Fiorialberi.jpeg" alt="Fiori del nostro giardino">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/gate.jpeg" alt="Entrata cancello">
+        <img class="slides" src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/giardino.jpeg" alt="Entrata alla farm">
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px; align-self: center;">
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+    </div>
+    <p style="max-width: 5000px; text-align: justify;">
         La cascina Mongaudio, immersa tra le fertili colline del Monferrato, nasce più di due secoli fa. Oggi continuiamo l'attività artigianale che contraddistingueva i nostri predecessori, coltivando alcuni dei terreni nella nostra vallata, allevando suini di qualità e producendo prodotti di norcineria di prima classe. Nel rispetto dell'ambiente, tutta l'energia utilizzata all'interno della nostra azienda viene prodotta tramite i nostri pannelli solari e per via della fermentazione di prodotti di scambio all'interno del nostro Biogas, mentre le nostre api si adoperano per tutelare la flora locale e proteggere la biodiversità dell'ecologia locale.
     </p>
 </section>
 
-<!-- I nostri prodotti -->
-<section class="products">
+
+    <!-- I nostri prodotti -->
+    
+    <section class="products">
     <h2>I nostri prodotti</h2>
     <p>Il nostro spaccio lo trovi aperto dal venerdì al sabato dalle 8.30 alle 19.30 e la domenica dalle 8.30 alle 13.00. Per più informazioni sui nostri prodotti e orari dai un occhio alla sezione qui di seguito.</p>
     <ul>
-        <li class="product-card">
+        <li>
             <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/SALAME%20COTTO%20ROSA.jpg" alt="Salame Cotto Rosa">
-            <div class="product-info">
+            <div class="details">
                 <span>Salame Cotto Rosa</span>
                 <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti, salnitro</span>
             </div>
         </li>
-        <li class="product-card">
+        <li>
             <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/l'Angiolino.jpg" alt="Salame Nostrano">
-            <div class="product-info">
-                <span>Salame Nostrano</span>
-                <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti, salnitro</span>
-            </div>
+                <div class="details">
+                    <span>Salame Nostrano</span>
+                    <span class="Ingredienti"> Carne di suino, sale, pepe, aglio, spezie, vino con solfiti,salnitro</span>
+                </div>
         </li>
-    </ul>
-</section>
-
-<footer>
-    <p>© 2024 Mongaudio Farm. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+        <li>
+            <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/ETICHETTA PASTA DI SALAME -.jpg" alt="Salame">
+                <div class="details">
+                    <span>Pasta di Salame</span>
+                    <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti,salnitro</span>
+                </div>
+        </li>
+        <li>
+            <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/IL LARDO ADESIVO.jpg" alt="Lardo">
+                <div class="details">
+                    <span>Cotechino</span>
+                    <span class="Ingredienti">Lardo di suino, sale, pepe, aglio, spezie, vino con solfiti,salnitro</span>
+                </div>
+        </li>
+        <li>
+            <img src="https://raw.githubusercontent.com/milenainbusiness/Mongaudioinweb/main/l'Angiolino.jpg" alt="Salame">
+                <div class="details">
+                    <span>Pancetta</span>
+                    <span class="Ingredienti">Carne di suino, sale, pepe, aglio, spezie, vino con solfiti,salnitro</span>
+                </div>
+        </li>
+        </ul>
+    </section>
 
     <!-- Dove trovarci -->
     <section class="location">
